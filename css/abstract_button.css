@@ -1,35 +1,49 @@
 button.accordion {
-font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-cursor: pointer;
-padding: 0px;
-border: none;
-text-align: left;
-outline: none;
-font-size: 100%;
-transition: 0.3s;
-background-color: #f8f8f8;
-}
-button.accordion.active, button.accordion:hover {
-background-color: #f8f8f8;
-}
-button.accordion:after {
-content: " [+] ";
-font-size: 90%;
-color:#777;
-float: left;
-margin-left: 1px;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  text-align: left;
+  outline: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--accent-bg);
+  transition: background 0.3s ease;
+  position: relative;
 }
 
-button.accordion.active:after {
-content: " [\2212] ";
+button.accordion:hover,
+button.accordion.active {
+  background: var(--accent-light);
 }
+
+button.accordion::after {
+  content: '+';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+button.accordion.active::after {
+  content: '\2212';
+}
+
 div.panel {
-padding: 0 20px;
-margin-top: 5px;
-display: none;
-background-color: white;
-font-size: 100%;
+  padding: 16px 8px 4px;
+  display: none;
+  background: var(--card-bg);
+  font-size: 100%;
 }
+
 div.panel.show {
-display: block !important;
+  display: block !important;
 }
